@@ -22,7 +22,7 @@ namespace zoo
         { 
             while (hungerLevel > 0)
             {
-              Console.WriteLine(string.Format("I am {0} {1} {2}  going hunting ", color, name, type));
+              Console.WriteLine(string.Format("I am {0} {1} {2}  going  to hunt ", color, name, type));
               hungerLevel--;
             }
             
