@@ -11,27 +11,25 @@ namespace zoo
 {
     public class HerbivorousAnimal : Animal
     {
-        public HerbivorousAnimal()
-        {
-        }
-
         private bool peaceful = true;
         private bool eatGrass = true;
+
+        protected HerbivorousAnimal(string type, string name, string color)
+        {
+            base(type, name, color, 4);
+        }
+
 
         public void Hide()
         {
             if (peaceful == true && eatGrass == true)
             {
-              Console.WriteLine(string.Format("everyone {0} knows how to hide", type));
+                Console.WriteLine(string.Format("everyone {0} knows how to hide", Mtype));
             }
-            
+
         }
-
-        
-
-
 
 
     }
-    
+
 }
