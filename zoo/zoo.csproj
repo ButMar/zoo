@@ -45,9 +45,11 @@
   <ItemGroup>
     <Compile Include="Animal.cs" />
     <Compile Include="HerbivorousAnimal.cs" />
+    <Compile Include="Utils\FileReader.cs" />
     <Compile Include="WildAnimal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZooWorking.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

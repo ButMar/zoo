@@ -14,21 +14,18 @@ namespace zoo
         private bool peaceful = true;
         private bool eatGrass = true;
 
-        protected HerbivorousAnimal(string type, string name, string color)
-        {
-            base(type, name, color, 4);
+        public HerbivorousAnimal(string type, string name, string color, int hugerlevel) :
+                                 base( type, name, color, hugerlevel)
+        {                   
         }
-
 
         public void Hide()
         {
             if (peaceful == true && eatGrass == true)
             {
-                Console.WriteLine(string.Format("everyone {0} knows how to hide", Mtype));
+                Console.WriteLine(string.Format("everyone {0} knows how to hide", type));
             }
-
         }
-
 
     }
 

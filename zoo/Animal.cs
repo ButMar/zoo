@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Pipes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,46 +10,49 @@ namespace zoo
 {
     public class Animal 
     {
-        protected string Mtype;
-        protected string Mname;
-        protected string Mcolor;
-        protected int MnumberPaws = 4;
-        protected int Mwing = 2;
-        protected int Mweight;
-        protected string Mhome = "forest";
-        protected int MhungerLevel;
+        protected string type;
+        protected string name;
+        protected string color;
+        protected int numberPaws;
+        protected bool wing = false;
+        protected int weight;
+        protected int hungerLevel;
 
-        public Animal(string type, string name, string color, int weight, int hungerLevel)
+        public Animal(string type, string name, string color, int hungerLevel)
         {
-            Mtype = type;
-            Mname = name;   
-            Mcolor = color;
-            Mweight = weight;
-            MhungerLevel = hungerLevel;
+            this.type = type;
+            this.name = name;
+            this.color = color;
+            this.hungerLevel = hungerLevel;
+        }
+        public string Type { get { return type; } }
+        public string Name { get { return name; } }
+        public string Color { get { return color; } }
+        public int HungerLevel
+        { 
+            get { return hungerLevel; }
+            set { hungerLevel = value; }
         }
 
-        
- 
-        public void Eat()
-        { 
-            var i = 0;
+
+        public int Eat()
+        {
             do
             {
-                Console.WriteLine(string.Format("{0} {1} going eat in {2} paws", Mtype, Mname, MnumberPaws));
-                i++;
+                hungerLevel--;
+            }
+            while (hungerLevel > 0);
 
-            }  while (i != Mweight);
-
+            return hungerLevel;
         }
 
 
-        
         public void Run()
         {
-            if (Mhome != "in ocean" && MnumberPaws != 0)
+            if ( numberPaws != 0)
             {
-               Console.WriteLine(string.Format("{0} {1} {2} on {3} paws runing at home {4}",
-                                                Mcolor, Mtype, Mname, MnumberPaws, Mhome));
+               Console.WriteLine(string.Format("{0} {1} on {3} paws runing at home}",
+                                                color, name, numberPaws));
             }
             
         }
@@ -56,39 +60,17 @@ namespace zoo
 
         public void Fly()
         {
-            if (Mwing == 2)
+            if (wing == true)
             {
-                Console.WriteLine("I {0} {1} can fly", Mcolor, Mname);
+                Console.WriteLine("I {0} can fly", name);
             }
             else
             {
-                Console.WriteLine("You  {0} can't fly, becose you need to have 2 wings", Mtype);
+                Console.WriteLine("You  {0} can't fly, becose you need to have 2 wings", name);
             }
             
         }
 
-
-        public void Gump()
-        {
-            if (Mtype == "rabit")
-            {
-              Console.WriteLine("You are {0} rabit, so you can jump", Mname);
-            }
-            
-        }
-
-        public void Befood()
-        {
-            if (Mweight < 50)
-            {
-                Console.WriteLine("carefully {0} {1} You will be food ", Mtype, Mname);
-            }
-            else
-            {
-                Console.WriteLine("{0}, you will live", Mname);
-            }
-
-        } 
 
 
     }
